@@ -2,7 +2,10 @@
 ### Author: Xiulin Gao
 ### Date: 2025-06-11
 
-1. git clone https://github.com/ESCOMP/CTSM
+1. clone CTSM 
+
+		git clone https://github.com/ESCOMP/CTSM
+		
 2. cd into the CTSM directory : 
 
 		cd CTSM

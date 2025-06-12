@@ -1,6 +1,8 @@
-## Clone CTSM and environment set up
 ### Author: Xiulin Gao
 ### Date: 2025-06-11
+
+## Clone CTSM and environment set up
+
 
 1. clone CTSM 
 
@@ -22,24 +24,28 @@
 	conda activate py_env_name
 	~~~
 
-5.  update external modules: ./bin/git-fleximod update
-6.  It's fine to use the master version of CLM-FATES, but you can also chose a different version of CLM-FATES you want to use, which also requires switching to the corresponding version of host land model. See [FATES-WIKI](https://fates-users-guide.readthedocs.io/en/latest/user/release-tags-compat-table.html) for details. If you decide to use a version that is different from the master version:
+5.  update external modules: 
+
+		./bin/git-fleximod update
+		
+6.  It's fine to use the master version of CLM-FATES, but you can also chose a different version of CLM-FATES, which also requires switching to the corresponding version of host land model. See [FATES-WIKI](https://fates-users-guide.readthedocs.io/en/latest/user/release-tags-compat-table.html) for details. If you decide to use a version that is different from the master version:
 
 	~~~bash
 	# checkout a different version of CTSM and update FATES
 	cd CTSM
 	git checkout -b your-new-branch-name  the-target-ctsm-version-tag
 	./bin/git-fleximod update 	
-		
-	# checkout a different version of CTSM for a desired version of FATES
+	~~~
+	
+	That's all you need to do if you don't have a specific FATES tag or branch you want to use. In case you also need a specific version of FATES:
+	
+	~~~		
+	# checkout a desired version/remote branch of FATES that is compatible with current CTSM
 	cd CTSM/src/fates
 	git checkcout -b your-new-fates-branch tag-of-desired-version-of-FATES
-	cd ../../
-	git checkout -b new-ctsm-tag tag-of-corresponding-CTSM-for-current-FATES
-		
 	~~~
 
-**Note: you have to make sure the specific FATES version you chose is compatible with the host land model.** 
+**Note: you have to make sure the specific FATES version/branch you chose is compatible with the host land model. Otherwise the model might fail** 
     
 
 ## Singel point simulation
@@ -88,8 +94,12 @@ Once your case is sucessfully built, you can go to the case directory to submit 
 
 ## Useful resources
 
-The [CESM forum](https://bb.cgd.ucar.edu/cesm/) is a great place for posting questions about model bugs that you run into if it's more a land surface model issue.
+1. The [CESM forum](https://bb.cgd.ucar.edu/cesm/) is a great place for posting questions about model bugs that you run into if it's more a land surface model issue.
 [FATES GitHub](https://github.com/NGEET/fates) is where you probably should go for most of the FATES related questions or model bugs. 
+
+2. Model output post-processing scripts for R users can be found at [Marcos Longo's FATES_Util](https://github.com/mpaiao/FATES_Utils/tree/master) repo.
+
+**Note: If you are using any script referenced above, please contact the corresponding authors to let them know**
 	
 	
 	

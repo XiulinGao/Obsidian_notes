@@ -14,7 +14,7 @@
  
 3. create python environment for running CLM: 
 
-		./py\_env\_create
+		./py_env_create
 
 
 4. activate new python env:
